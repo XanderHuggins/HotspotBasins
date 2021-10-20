@@ -1,15 +1,14 @@
-# Hotspots of social and ecological impacts from freshwater stress and storage loss
+## Hotspots of social and ecological impacts from freshwater stress and storage loss
 
-![cover-image](assets/thumbnail.png)
+<img src="https://raw.githubusercontent.com/XanderHuggins/HotspotBasins/main/assets/thumbnail.png" width=60% height=60%>
 
-*Manuscript currently in revision at Nature Communications.* <br/>
-Author list: X. Huggins, T. Gleeson, M. Kummu, S.C. Zipper, Y. Wada. T.J. Troy, J.S. Famiglietti  
+*The associated manuscript is currently in revision at Nature Communications.* <br/>
 
-## Repository structure
+**This repository is structured as follows:**
 * **R/** -- 
-    * **setup/** -- imports necessary packages and sets common plotting arguments
-    * **preprocessing/** -- data preparation scripts 
-    * **udfs/** -- user defined functions
-    * **analysis/** -- core scripts that perform analysis and generate all maps and figures
-* **assets/** -- holds images used as the banner above and in the interactive subjectivity results web-page
-* **docs/** -- contains files for the associated web-page providing interactive subjectivity result @ [this link](https://xanderhuggins.github.io/Hotspots/)
+    * **setup/** -- scripts that import necessary packages and set common plotting arguments
+    * **preprocessing/** -- scripts that prepare data for analysis 
+    * **udfs/** -- scripts containing user defined functions
+    * **analysis/** -- scripts that perform analysis and generate all maps & figures
+* **assets/** -- holds content (i.e. images) for this repository
+* **docs/** -- contains files that run a github page with interactive subjectivity results (found [here](https://xanderhuggins.github.io/Hotspots/))
