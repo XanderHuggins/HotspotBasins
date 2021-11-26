@@ -3,7 +3,7 @@
 
 This is the code repository associated with the manuscript "Hotspots for social and ecological impacts from freshwater stress and storage loss", (Huggins et al. 202_), which is currently in final revisions at *Nature Communications*. <br/>
 
-**Repository structure:**
+**Repository structure:** <br/>
 *Note: Individual scripts are annotated and a description is provided at the top of each script.* 
 * **R/** -- 
     * **setup/** -- scripts that import necessary packages and set common plotting arguments
