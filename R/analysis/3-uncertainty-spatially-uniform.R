@@ -121,6 +121,6 @@ for (i in 1:nrow(s_df)) {
 }
 
 # Save results
-write.csv(s_df, here('Data/montecaro_basin_10percentpert.csv'))
-write.csv(bt_df, here('Data/mc_uniform_basin_threshold.csv'))
-write.csv(bh_df, here('Data/mc_uniform_basin_hotspot.csv'))
+write.csv(s_df, here('Data/mc_basin_all_uniform.csv'))
+write.csv(bt_df, here('Data/mc_basin_threshold_uniform.csv'))
+write.csv(bh_df, here('Data/mc_basin_hotspot_uniform.csv'))

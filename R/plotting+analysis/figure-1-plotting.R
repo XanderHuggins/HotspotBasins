@@ -36,7 +36,7 @@ tm <- tm_shape(basins_data, projection = "+proj=robin") +
   tm_polygons(col = "fwstrs",  style = "cont", 
               palette = scico(20, palette = "bilbao", direction = 1), 
             midpoint = 0.2, breaks = c(0, 0.4), alpha = 1.00,
-            lwd = 0.2) +
+            lwd = 0.2, colorNA = 'grey50') +
   tm_shape(coastlines) +
   tm_borders(lwd = 0.7, col = "black") +
   tm_layout(legend.show = F, earth.boundary = c(-179, -60, 179, 88),

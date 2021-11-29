@@ -9,9 +9,9 @@ invisible(sapply(paste0(here("R/setup"), "/", list.files(here("R/setup"))), sour
 invisible(sapply(paste0(here("R/udf"), "/", list.files(here("R/udf"))), source))
 
 # Import coastlines and basin shapefile with plotting data
-s_df <- read.csv(here('Data/montecaro_basin_10percentpert.csv'))
-bt_df <- read.csv(here('Data/mc_uniform_basin_threshold.csv'))
-bh_df <- read.csv(here('Data/mc_uniform_basin_hotspot.csv'))
+s_df <- read.csv(here('Data/mc_basin_all_uniform.csv'))
+bt_df <- read.csv(here('Data/mc_basin_threshold_uniform.csv'))
+bh_df <- read.csv(here('Data/mc_basin_hotspot_uniform.csv'))
 
 # Select columns of interest to plot
 p_df <- s_df %>% dplyr::select(NhotH, NhotVH, Cptb, Qptb, Tptb, Aptb, Eptb, Vptb)
@@ -25,7 +25,7 @@ sensplot <-
   gather(-hotspots, key = "var", value = "value") %>%
   ggplot(aes(x = value, y = hotspots)) +
   geom_point(alpha = 0.05, size = 1) + 
-  geom_point(data = NULL, aes(x = 0, y = 172), color = "red", size = 1.5) +
+  geom_point(data = NULL, aes(x = 0, y = 168), color = "red", size = 1.5) +
   # geom_smooth(alpha = 0.5) +
   facet_wrap(~ var, nrow = 1) +
   scale_y_continuous(limits = c(0, 300)) +

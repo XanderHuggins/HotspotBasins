@@ -87,6 +87,7 @@ GDP_2015_0d5 <- raster::aggregate(x = GDP_2015, fact = x, fun = sum, expand = F,
                                   filename = here::here("Data", "Dimensions", 
                                                         "GDP_2015_0d5.tif"))
 
+
 # Amphibian species richness ----
 amph <- raster(here::here("Data", "Dimensions", "all_amphibians.tif"))
 extent(amph) = c(-180, 180, -90, 90)
