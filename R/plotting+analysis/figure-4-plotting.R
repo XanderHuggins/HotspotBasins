@@ -24,17 +24,16 @@ IWRMclass <- reclassify(iwrm_harm, rclmat)
 
 IWRMclass <- rasterToPolygons(IWRMclass, dissolve = T)
 
-# Identify non-hotspots and shade on map
-basins_data$faderegs <- rep(NA)
-basins_data$faderegs[basins_data$ss_vcls < 2] <- 1
-basins_data_d <- basins_data %>% filter(faderegs == 1)
-
-# Identify non-hotspots and shade on map
+# Identify non-hotspots and fade on map
 basins_data$hotspots <- rep(NA)
 basins_data$hotspots[basins_data$ss_vcls >= 2] <- 1
 basins_data_h <- basins_data %>% filter(hotspots == 1)
 basins_data_h <- fasterize(sf = basins_data_h, raster = WGS84_areaRaster(0.5))
+basins_data_nh <- 1 - basins_data_h
 basins_data_h <- raster::rasterToPolygons(basins_data_h, na.rm = T, dissolve = T)
+basins_data_nh[is.na(basins_data_nh)] <- 1
+basins_data_nh[basins_data_nh == 0] <- NA
+basins_data_nh <- projectRaster(basins_data_nh, crs = crs("+proj=robin"), method = 'ngb')
 
 # Custom palette
 cus.pal <- c("#D57F31", "#E8BA24", "#81BF81", "#6CBDEF", "#0D7EB6")
@@ -44,7 +43,7 @@ tm <- tm_shape(coastlines, projection = "+proj=robin") + tm_fill(col = '#b3b3b3'
   tm_polygons(col = "iwrm_fill", style = "cat", palette = cus.pal,
               lwd = 0, colorNA = '#b3b3b3') +
   tm_shape(basins_data) + tm_borders(lwd = 0.2) + 
-  tm_shape(basins_data_d) + tm_fill(col = 'black', alpha = 0.5) + 
+  tm_shape(basins_data_nh) + tm_raster(style = 'cat', palette = 'white', alpha = 0.75) + 
   tm_shape(basins_data_h) + tm_borders(col = 'black', lwd = 2) + 
   tm_shape(coastlines) +
   tm_borders(lwd = 0.7, col = "black") +
